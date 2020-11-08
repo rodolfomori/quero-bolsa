@@ -1,1 +1,7 @@
 export { Header } from './Header'
+export { Menu } from './Menu'
+export { SubHeader } from './SubHeader'
+export { SemesterMenu } from './SemesterMenu'
+export { ScholarShipAddButton } from './ScholarShipAddButton'
+export { Footer } from './Footer'
+export { Modal } from './Modal'

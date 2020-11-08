@@ -48,6 +48,7 @@
         ]
       }
     ],
+    "no-unused-vars":"warn",
     "import/prefer-default-export": "off",
     "import-helpers/order-imports": [
       "warn",

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 
-import { Header } from '../../components'
+import { Header, Menu, SubHeader, SemesterMenu, ScholarShipAddButton, Footer } from '../../components'
 import { apiCoursesList } from '../../services/api'
 // import { Container } from './styles';
 
 export const Home = () => {
+  const [openModal, setOpenModal] = useState(false)
   useEffect(() => {
     async function LoadData() {
       try {
@@ -17,5 +18,14 @@ export const Home = () => {
     LoadData()
   }, [])
 
-  return <Header />
+  return (
+    <>
+      <Header />
+      <Menu />
+      <SubHeader />
+      <SemesterMenu />
+      <ScholarShipAddButton onClick={() => setOpenModal(!openModal)} />
+      <Footer />
+    </>
+  )
 }
