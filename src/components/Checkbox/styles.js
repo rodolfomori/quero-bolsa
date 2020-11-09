@@ -50,7 +50,7 @@ export const Container = styled.div`
 
   > input:disabled:not(:checked) + label {
     &:before {
-      background-color: #f8f8f8;
+      background-color: ${(props) => props.theme.mainBlue};
       border-color: #999;
     }
   }

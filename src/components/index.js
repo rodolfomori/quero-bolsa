@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 export { Header } from './Header'
 export { Menu } from './Menu'
 export { SubHeader } from './SubHeader'
@@ -7,4 +8,4 @@ export { Footer } from './Footer'
 export { Modal } from './Modal'
 export { ModalContent } from './ModalContent'
 export { Select } from './Select'
-export { Checkbox } from './Checkbox'
+export { CheckBox } from './CheckBox'

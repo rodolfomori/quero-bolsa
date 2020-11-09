@@ -1,14 +1,17 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
-import { Select } from '..'
+import { Select, CheckBox } from '..'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
-import { Container, Range, CheckBox, WrapperCheck } from './styles'
+import { Container, Range, WrapperCheck } from './styles'
 
 export function ModalContent() {
   const [city, setCity] = useState([{}])
+  const [presential, setPresential] = useState(true)
+  const [distance, setDistance] = useState(true)
   const [course, setCourse] = useState([{}])
+
   const [courseValue, setCourseValue] = useState(1000)
   const { scholarShipsDataData, cities, courses, maxMin } = useScholarShipsData()
   const { max, min } = maxMin || {}
@@ -39,12 +42,32 @@ export function ModalContent() {
       />
       <h4>Como você quer estudar ?</h4>
       <div style={{ display: 'flex', gap: 20, marginTop: 30 }}>
-        <WrapperCheck>
-          <CheckBox type="checkbox" /> <span>Presencial</span>
-        </WrapperCheck>
-        <WrapperCheck>
-          <CheckBox type="checkbox" /> <span>A distância</span>
-        </WrapperCheck>
+        <CheckBox
+          checked={presential}
+          id="presencial"
+          label="Presencial"
+          name="presencial"
+          onClick={() => setPresential(!presential)}
+          style={{
+            fontStyle: 'normal',
+            fontWeight: 300,
+            fontSize: 14,
+            lineHeight: 19,
+          }}
+        />
+        <CheckBox
+          checked={distance}
+          id="distance"
+          label="A distância"
+          name="distance"
+          onClick={() => setDistance(!distance)}
+          style={{
+            fontStyle: 'normal',
+            fontWeight: 300,
+            fontSize: 14,
+            lineHeight: 19,
+          }}
+        />
       </div>
 
       <h4>Até quanto pode pagar ?</h4>
