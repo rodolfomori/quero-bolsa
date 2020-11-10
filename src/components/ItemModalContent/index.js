@@ -1,36 +1,43 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
-import { Select, CheckBox, CleanSelect } from '..'
+import { CheckBox } from '..'
 
 import PropTypes from 'prop-types'
 
-// import { useScholarShipsData } from '../../hooks/scholarShipsData'
+import { useScholarShipsData } from '../../hooks/scholarShipsData'
 import { formatPrice } from '../../utils'
 import { Container, WrapperItens } from './styles'
 
-export function ItemModalContent({ data, index }) {
+export function ItemModalContent({ data, index, storageCourse }) {
   const [scholarShipsData, setScholarShipsData] = useState(false)
+  const [isChecked, setIsChecked] = useState(false)
+
+  const { favorites } = useScholarShipsData()
 
   useEffect(() => {
+    favorites.forEach((element) => {
+      element.id === data.id && setIsChecked(true)
+    })
+
     data && setScholarShipsData(data)
-  }, [data])
+  }, [data, favorites])
 
   return (
     <>
       {scholarShipsData && (
         <Container>
           <CheckBox
-            // checked={distance}
+            defaultChecked={isChecked || false}
             id={index}
             name="distance"
-            // onClick={() => setDistance(!distance)}
             style={{
               fontStyle: 'normal',
               fontWeight: 300,
               fontSize: 14,
               lineHeight: 19,
             }}
+            onChange={() => storageCourse(data)}
           />
           <div className="wrapper-image">
             <img src={scholarShipsData.university.logo_url} />
@@ -50,4 +57,5 @@ export function ItemModalContent({ data, index }) {
 ItemModalContent.propTypes = {
   data: PropTypes.array.isRequired,
   index: PropTypes.number.isRequired,
+  storageCourse: PropTypes.func.isRequired,
 }

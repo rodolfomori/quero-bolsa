@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
-import { Select, CheckBox, CleanSelect, ItemModalContent, Range } from '..'
+import { Select, CheckBox, CleanSelect, ItemModalContent, Range, ColourButton } from '..'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
 import { formatPrice, getDataFiltered, getDataSort } from '../../utils'
@@ -14,9 +14,10 @@ export function ModalContent() {
   const [course, setCourse] = useState('all')
   const [filterData, setFilterData] = useState(false)
   const [sortFor, setSortFor] = useState(0)
+  const [storageCourses, setStorageCourses] = useState([])
 
   const [courseValue, setCourseValue] = useState(1000)
-  const { scholarShipsData, cities, courses, maxMin } = useScholarShipsData()
+  const { scholarShipsData, cities, courses, maxMin, addFavoritesCourses, setOpenModal } = useScholarShipsData()
   const { max, min } = maxMin || {}
 
   useEffect(() => {
@@ -28,6 +29,14 @@ export function ModalContent() {
     setFilterData(getDataSort({ data: newData, sortFor }))
   }, [distance, city, presential, course, courseValue, scholarShipsData, sortFor])
 
+  const storageCourse = (newCourse) => {
+    setStorageCourses([newCourse, ...storageCourses])
+  }
+
+  const submit = () => {
+    addFavoritesCourses(storageCourses)
+    setOpenModal(false)
+  }
   const orderOptions = [
     {
       value: 0,
@@ -135,10 +144,13 @@ export function ModalContent() {
       {filterData && (
         <div>
           {filterData.map((item, index) => (
-            <ItemModalContent key={index} index={index} data={item} />
+            <ItemModalContent key={index} storageCourse={storageCourse} index={index} data={item} />
           ))}
         </div>
       )}
+      <ColourButton type="button" onClick={submit}>
+        Adicionar Bolsa(s)
+      </ColourButton>
     </Container>
   )
 }

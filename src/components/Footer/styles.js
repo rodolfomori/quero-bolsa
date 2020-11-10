@@ -1,5 +1,7 @@
+import { FaWhatsapp } from 'react-icons/fa'
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
 export const Container = styled.div`
   margin-top: 100px;
@@ -51,11 +53,16 @@ export const FooterItem = styled.div`
     flex-direction: row !important;
   }
 `
-
-export const Icon = styled(FontAwesomeIcon)`
+const iconStyle = css`
   height: 48px;
   width: 48px !important;
   path {
     color: ${(props) => props.theme.grayBackground};
   }
+`
+export const Icon = styled(FontAwesomeIcon)`
+  ${iconStyle}
+`
+export const Whatsapp = styled(FaWhatsapp)`
+  ${iconStyle}
 `

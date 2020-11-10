@@ -2,11 +2,11 @@ import React from 'react'
 
 import { faComments, faEnvelope, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
 
-import { Container, FooterItem, Icon, Wrapper, FooterMessage } from './styles'
+import { Container, FooterItem, Icon, Wrapper, FooterMessage, Whatsapp } from './styles'
 
 export function Footer() {
   const whatsapp = {
-    icon: faComments,
+    icon: <Whatsapp />,
     title: '0800 123 2222',
     description: 'Sex - Sex 8h-22h',
     subtitle: 'Segunda a sexta de 8h às 22h',
@@ -41,7 +41,7 @@ export function Footer() {
   return (
     <Container>
       <FooterItem style={{ marginBottom: 3, flexDirection: 'row', gap: 20 }}>
-        <Icon icon={whatsapp.icon} />
+        {whatsapp.icon}
         <div>
           <h3>{whatsapp.title}</h3>
           <h4>{whatsapp.subtitle}</h4>

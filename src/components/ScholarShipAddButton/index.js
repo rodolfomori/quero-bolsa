@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+import PropTypes from 'prop-types'
 
 import { Container, PlusIcon } from './styles'
 
@@ -15,4 +16,8 @@ export function ScholarShipAddButton(props) {
       <p>cursos do seu interesse</p>
     </Container>
   )
+}
+
+ScholarShipAddButton.propTypes = {
+  onClick: PropTypes.func.isRequired,
 }
