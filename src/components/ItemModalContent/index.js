@@ -13,7 +13,6 @@ export function ItemModalContent({ data, index }) {
   const [scholarShipsData, setScholarShipsData] = useState(false)
 
   useEffect(() => {
-    console.log(data)
     data && setScholarShipsData(data)
   }, [data])
 

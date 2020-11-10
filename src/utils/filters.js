@@ -27,7 +27,6 @@ export const getDataFiltered = ({
   distance = true,
   value = 1000,
 }) => {
-  console.log(city)
   const newData = data
     .filter((item) => (city === 'all' ? item.campus.city : item.campus.city === city))
     .filter((item) => (course === 'all' ? item.course.name : item.course.name === course))

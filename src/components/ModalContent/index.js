@@ -4,8 +4,8 @@ import React, { useState, useEffect } from 'react'
 import { Select, CheckBox, CleanSelect, ItemModalContent, Range } from '..'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
-import { formatPrice, getDataFiltered } from '../../utils'
-import { Container, WrapperCheck, WrapperSelect } from './styles'
+import { formatPrice, getDataFiltered, getDataSort } from '../../utils'
+import { Container, WrapperSelect } from './styles'
 
 export function ModalContent() {
   const [city, setCity] = useState('all')
@@ -13,6 +13,7 @@ export function ModalContent() {
   const [distance, setDistance] = useState(true)
   const [course, setCourse] = useState('all')
   const [filterData, setFilterData] = useState(false)
+  const [sortFor, setSortFor] = useState(0)
 
   const [courseValue, setCourseValue] = useState(1000)
   const { scholarShipsData, cities, courses, maxMin } = useScholarShipsData()
@@ -24,9 +25,35 @@ export function ModalContent() {
 
   useEffect(() => {
     const newData = getDataFiltered({ data: scholarShipsData, value: courseValue, city, distance, presential, course })
-    setFilterData(newData)
-  }, [distance, city, presential, course, courseValue, scholarShipsData])
+    setFilterData(getDataSort({ data: newData, sortFor }))
+  }, [distance, city, presential, course, courseValue, scholarShipsData, sortFor])
 
+  const orderOptions = [
+    {
+      value: 0,
+      label: 'Nome da faculdade',
+    },
+    {
+      value: 1,
+      label: 'Nome do curso',
+    },
+    {
+      value: 2,
+      label: 'Maior desconto',
+    },
+    {
+      value: 3,
+      label: 'Menor desconto',
+    },
+    {
+      value: 4,
+      label: 'Maior preço',
+    },
+    {
+      value: 5,
+      label: 'Menor preço',
+    },
+  ]
   return (
     <Container>
       <h2>Adicionar Bolsa</h2>
@@ -54,7 +81,6 @@ export function ModalContent() {
           id="presencial"
           name="presencial"
           onChange={() => {
-            console.log('teesteee')
             setPresential(!presential)
           }}
           style={{
@@ -96,13 +122,13 @@ export function ModalContent() {
       <WrapperSelect style={{ display: 'flex', justifyContent: 'space-between' }}>
         <span>Resultado:</span>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
-          <span>Ordernar por</span>
+          <span>Ordenar por</span>
           <CleanSelect
             placeholder="Todos os cursos"
             name="courses"
-            options={courses}
-            value={course}
-            onChange={({ value }) => setCourse(value)}
+            options={orderOptions}
+            value={sortFor}
+            onChange={({ value }) => setSortFor(value)}
           />
         </div>
       </WrapperSelect>

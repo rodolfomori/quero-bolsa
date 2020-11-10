@@ -26,6 +26,10 @@ export const SelectStyle = styled(Select)`
 
   background: ${(props) => props.theme.grayBackground};
 
+  & .Select__single-value {
+    color: ${(props) => props.theme.secondaryBlue};
+  }
+
   & .Select__placeholder {
     color: ${(props) => props.theme.secondaryBlue};
     background: ${(props) => props.theme.grayBackground};

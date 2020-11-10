@@ -6,7 +6,6 @@ export function SemesterMenu() {
   const [semester, setSemester] = useState(null)
 
   const chooseSemester = (semesterChosen = null) => {
-    console.log(semesterChosen)
     setSemester(semesterChosen)
   }
 
