@@ -29,15 +29,15 @@ export const SelectStyle = styled(Select)`
   font-stretch: normal;
   line-height: normal;
   letter-spacing: normal;
-  min-height: calc(1.875rem + (1px * 2));
+  min-height: 38px;
   cursor: pointer;
   padding-right: 0;
   border: 1px solid #4a5759;
   border-radius: 5px;
 
-  & .Select__placeholder {
+  & .Select__single-value {
     color: ${(props) => props.theme.blackText};
-    padding-left: 7px;
+    padding-left: 15px;
   }
 
   & .Select__indicator-separator {

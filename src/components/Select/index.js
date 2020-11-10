@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 
 import { SelectStyle, Span, Container } from './styles'
 
-export const Select = ({ id, name, options, value, label = '', isLoading = false, ...rest }) => (
+export const Select = ({ id, name, options, value, label = '', ...rest }) => (
   <Container>
     <Span>{label}</Span>
     <SelectStyle
@@ -18,12 +18,14 @@ export const Select = ({ id, name, options, value, label = '', isLoading = false
       {...rest}
       noOptionsMessage={() => 'Nenhum valor encontrado'}
       loadingMessage={() => 'Procurando resultados...'}
-      isLoading={isLoading}
     />
   </Container>
 )
 
 Select.propTypes = {
+  id: PropTypes.any.isRequired,
+  value: PropTypes.number.isRequired,
+  label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   options: PropTypes.array.isRequired,
 }

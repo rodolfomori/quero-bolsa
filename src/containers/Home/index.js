@@ -14,6 +14,7 @@ export const Home = () => {
       <ScholarShipAddButton
         onClick={() => {
           setOpenModal(!openModal)
+          window.scrollTo(0, 0)
         }}
       />
       <Footer />

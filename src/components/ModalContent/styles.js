@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled, { keyframes } from 'styled-components'
 
 export const Container = styled.div`
-  background-color: ${(props) => props.theme.grayBackground};
+  background-color: #ffffff;
   height: 100vh;
   width: 100vw;
   z-index: 999;
@@ -11,6 +11,7 @@ export const Container = styled.div`
   margin: 70px 0;
   opacity: 1;
   padding: 16px;
+  overflow: auto;
 
   h2 {
     margin-top: 10px;
@@ -20,6 +21,11 @@ export const Container = styled.div`
   h4 {
     margin-top: 30px;
     text-transform: uppercase;
+  }
+
+  .label-checkbox {
+    font-size: 20px;
+    margin-left: -12px;
   }
 `
 
@@ -32,6 +38,19 @@ export const WrapperCheck = styled.div`
   }
 `
 
+export const WrapperSelect = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  border-bottom: 3px solid ${(props) => props.theme.gray};
+  padding-bottom: 25px;
+  span {
+    font-size: 18px;
+    font-weight: 700;
+    color: ${(props) => props.theme.blackText};
+  }
+`
+
 export const CheckBox = styled.input`
   border: solid 1px ${(props) => props.theme.mainBlue};
   border-radius: 0.25rem;
@@ -41,10 +60,9 @@ export const CheckBox = styled.input`
   width: 1.2rem;
   background-color: ${(props) => props.theme.mainBlue};
 `
-export const Range = styled.input``
 
 export const Icon = styled(FontAwesomeIcon)`
   path {
-    ${(props) => props.theme.grayBackground};
+    color: ${(props) => props.theme.grayBackground};
   }
 `

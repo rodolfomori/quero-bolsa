@@ -8,7 +8,7 @@ import { getAllCities, getAllCourses, getMaxMinPrice } from '../utils'
 const ScholarShipsDataContext = createContext({})
 
 const ScholarShipsDataProvider = ({ children }) => {
-  const [scholarShipsDataData, setScholarShipsDataData] = useState([{}])
+  const [scholarShipsData, setScholarShipsData] = useState([{}])
   const [cities, setCities] = useState([{}])
   const [courses, setCourses] = useState([{}])
   const [maxMin, setMaxMin] = useState([{}])
@@ -17,7 +17,7 @@ const ScholarShipsDataProvider = ({ children }) => {
     async function loadData() {
       try {
         const { data } = await mainApi.get()
-        setScholarShipsDataData(data)
+        setScholarShipsData(data)
 
         setCities(getAllCities(data))
         setCourses(getAllCourses(data))
@@ -29,8 +29,8 @@ const ScholarShipsDataProvider = ({ children }) => {
     loadData()
   }, [])
 
-  const value = useMemo(() => ({ scholarShipsDataData, cities, courses, maxMin }), [
-    scholarShipsDataData,
+  const value = useMemo(() => ({ scholarShipsData, cities, courses, maxMin }), [
+    scholarShipsData,
     cities,
     courses,
     maxMin,
@@ -51,6 +51,6 @@ function useScholarShipsData() {
 
 export { ScholarShipsDataProvider, useScholarShipsData }
 
-// ScholarShipsDataProvider.propTypes = {
-//   children: PropTypes.any,
-// }
+ScholarShipsDataProvider.propTypes = {
+  children: PropTypes.any,
+}

@@ -7,4 +7,5 @@ export const theme = {
   blackText: '#1F2D30',
   grayBackground: '#FBFBFB',
   modalBackground: '#1F2D30',
+  gray: '#f0f0f0',
 }

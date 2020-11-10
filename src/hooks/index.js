@@ -8,6 +8,6 @@ const AppProvider = ({ children }) => <ScholarShipsDataProvider>{children}</Scho
 
 export default AppProvider
 
-// AppProvider.propTypes = {
-//   children: PropTypes.any,
-// }
+AppProvider.propTypes = {
+  children: PropTypes.any,
+}

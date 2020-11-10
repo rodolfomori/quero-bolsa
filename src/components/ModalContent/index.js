@@ -1,24 +1,31 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
-import { Select, CheckBox } from '..'
+import { Select, CheckBox, CleanSelect, ItemModalContent, Range } from '..'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
-import { Container, Range, WrapperCheck } from './styles'
+import { formatPrice, getDataFiltered } from '../../utils'
+import { Container, WrapperCheck, WrapperSelect } from './styles'
 
 export function ModalContent() {
-  const [city, setCity] = useState([{}])
+  const [city, setCity] = useState('all')
   const [presential, setPresential] = useState(true)
   const [distance, setDistance] = useState(true)
-  const [course, setCourse] = useState([{}])
+  const [course, setCourse] = useState('all')
+  const [filterData, setFilterData] = useState(false)
 
   const [courseValue, setCourseValue] = useState(1000)
-  const { scholarShipsDataData, cities, courses, maxMin } = useScholarShipsData()
+  const { scholarShipsData, cities, courses, maxMin } = useScholarShipsData()
   const { max, min } = maxMin || {}
 
   useEffect(() => {
-    console.log(maxMin)
-  }, [scholarShipsDataData, cities, maxMin])
+    setFilterData(scholarShipsData)
+  }, [scholarShipsData])
+
+  useEffect(() => {
+    const newData = getDataFiltered({ data: scholarShipsData, value: courseValue, city, distance, presential, course })
+    setFilterData(newData)
+  }, [distance, city, presential, course, courseValue, scholarShipsData])
 
   return (
     <Container>
@@ -26,17 +33,17 @@ export function ModalContent() {
       <p>Filtre e adicione as bolsas de seu interesse.</p>
       <Select
         label="SELECIONE SUA CIDADE"
-        placeholder="Todas as cidades"
+        placeholder=""
         name="cities"
-        options={cities}
+        options={[{ value: 'all', label: 'Todas as cidades' }, ...cities]}
         value={city}
         onChange={({ value }) => setCity(value)}
       />
       <Select
         label="SELECIONE O CURSO DE SUA PREFERÊNCIA"
-        placeholder="Todos os cursos"
+        placeholder=""
         name="courses"
-        options={courses}
+        options={[{ value: 'all', label: 'Todos os cursos' }, ...courses]}
         value={course}
         onChange={({ value }) => setCourse(value)}
       />
@@ -45,9 +52,11 @@ export function ModalContent() {
         <CheckBox
           checked={presential}
           id="presencial"
-          label="Presencial"
           name="presencial"
-          onClick={() => setPresential(!presential)}
+          onChange={() => {
+            console.log('teesteee')
+            setPresential(!presential)
+          }}
           style={{
             fontStyle: 'normal',
             fontWeight: 300,
@@ -55,10 +64,10 @@ export function ModalContent() {
             lineHeight: 19,
           }}
         />
+        <span className="label-checkbox">Presencial</span>
         <CheckBox
           checked={distance}
           id="distance"
-          label="A distância"
           name="distance"
           onClick={() => setDistance(!distance)}
           style={{
@@ -68,10 +77,11 @@ export function ModalContent() {
             lineHeight: 19,
           }}
         />
+        <span className="label-checkbox">A distância</span>
       </div>
 
       <h4>Até quanto pode pagar ?</h4>
-      <p>{courseValue}</p>
+      <p>{formatPrice(courseValue)}</p>
       <Range
         type="range"
         value={courseValue}
@@ -79,9 +89,30 @@ export function ModalContent() {
         name="pricerange"
         min={min}
         max={max}
-        step="1"
+        step="10"
         onChange={({ target: { value } }) => setCourseValue(value)}
       />
+
+      <WrapperSelect style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <span>Resultado:</span>
+        <div style={{ display: 'flex', flexDirection: 'column' }}>
+          <span>Ordernar por</span>
+          <CleanSelect
+            placeholder="Todos os cursos"
+            name="courses"
+            options={courses}
+            value={course}
+            onChange={({ value }) => setCourse(value)}
+          />
+        </div>
+      </WrapperSelect>
+      {filterData && (
+        <div>
+          {filterData.map((item, index) => (
+            <ItemModalContent key={index} index={index} data={item} />
+          ))}
+        </div>
+      )}
     </Container>
   )
 }
