@@ -4,7 +4,7 @@
     Quero Bolsa &nbsp; :mortar_board:
 </h1>
 
-  [You are ONLINE, try Now](https://quero-bolsa.netlify.app)  :tada:<br>
+[You are ONLINE, try Now](https://quero-bolsa.netlify.app) :tada:<br>
 [![Netlify Status](https://api.netlify.com/api/v1/badges/558d449f-56e0-4457-9120-69590d38cf43/deploy-status)](https://app.netlify.com/sites/quero-bolsa/deploys)
 
 <h4 align="center">
@@ -17,23 +17,19 @@
   <a href="#sunny-result">Result</a>
 </p>
 
-<div align="center" style="max-width: 300px;">
-    <img alt="quero-bolsa-logo" src="src/assets/img/logo-querobolsa.svg" />
-    <br>
-</div>
 
 
 ## :rocket: Technologies
 
 This project was developed with the following technologies:
 
--  [ReactJS](https://reactjs.org/)
--  [Axios](https://github.com/axios/axios)
--  [Polished](https://polished.js.org/)
--  [styled-components](https://www.styled-components.com/)
--  [React-Icons](https://react-icons.netlify.com/)
--  [Prettier](https://prettier.io/)
--  [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
+- [ReactJS](https://reactjs.org/)
+- [Axios](https://github.com/axios/axios)
+- [Polished](https://polished.js.org/)
+- [styled-components](https://www.styled-components.com/)
+- [React-Icons](https://react-icons.netlify.com/)
+- [Prettier](https://prettier.io/)
+- [VS Code][vc] with [EditorConfig][vceditconfig] and [ESLint][vceslint]
 
 ## :information_source: How To Use
 
@@ -88,6 +84,7 @@ $ yarn or npm start
 
 
 ```
+
 ## :sunny: Result
 
   <div style="display: flex;   flex-direction: column;
@@ -100,12 +97,10 @@ $ yarn or npm start
   <h1 align="center" style="display: flex; flex-direction:row;">
       <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-3.png" />
       <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-4.png" />
-          <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-5.png" />
   </h1>
   </div>
 
-
-----
+---
 
 Made with ♥ by Rodolfo Mori :wave: [Get in touch!](https://www.linkedin.com/in/rodolfomori/)
 
@@ -114,6 +109,3 @@ Made with ♥ by Rodolfo Mori :wave: [Get in touch!](https://www.linkedin.com/in
 [vc]: https://code.visualstudio.com/
 [vceditconfig]: https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig
 [vceslint]: https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint
-
-
-
