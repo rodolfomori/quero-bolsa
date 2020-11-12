@@ -1,4 +1,5 @@
-<h1 align="center">
+<h1 align="center" style="    max-width: 250px;
+    margin: 30px 0;">
     <br>
     Quero Bolsa &nbsp; :mortar_board:
 </h1>
