@@ -57,15 +57,18 @@ $ yarn or npm start
 
 ├── public
 │   └── index.html
+│
 ├── src >> source code
 │   ├── assets.js
 │   ├── components
 │   ├── hooks
-│   ├── servicees
+│   ├── services
 │   │   └── api.js
+│   │
 │   ├── styles
 │   │   └── globalStyles.js
 │   │   └── theme.js
+│   │ 
 │   ├── utils
 │   ├── App.js
 │   ├── index.js
