@@ -73,11 +73,9 @@ $ yarn or npm start
 │
 │
 ├── .editorconfig
-├── .env.test.js
 ├── .eslintrc.js
 ├── .gitignore.js
 ├── .prettierrc.js
-├── nodemon.json.js
 ├── README.md
 └── package.json
 
