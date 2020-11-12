@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import { Container, Label, Spacing } from './styles'
 
-export const CheckBox = ({ id, name, checked, ...rest }) => (
+export const MainCheckBox = ({ id, name, checked, ...rest }) => (
   <Container>
     <div className="checkbox-container">
       <label className="checkbox-label">
@@ -16,7 +16,7 @@ export const CheckBox = ({ id, name, checked, ...rest }) => (
   </Container>
 )
 
-CheckBox.propTypes = {
+MainCheckBox.propTypes = {
   id: PropTypes.any.isRequired,
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool.isRequired,

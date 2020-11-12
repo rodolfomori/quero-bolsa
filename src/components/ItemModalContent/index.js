@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
-import { CheckBox } from '..'
+import { MainCheckBox } from '..'
 
 import PropTypes from 'prop-types'
 
@@ -27,7 +27,7 @@ export function ItemModalContent({ data, index, storageCourse }) {
     <>
       {scholarShipsData && (
         <Container>
-          <CheckBox
+          <MainCheckBox
             defaultChecked={isChecked || false}
             id={index}
             name="course"

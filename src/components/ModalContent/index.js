@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
-import { Select, CheckBox, CleanSelect, ItemModalContent, Range, ColourButton, WhiteButton } from '..'
+import { Select, MainCheckBox, CleanSelect, ItemModalContent, Range, ColourButton, WhiteButton } from '..'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
 import { formatPrice, getDataFiltered, getDataSort } from '../../utils'
@@ -96,7 +96,7 @@ export function ModalContent() {
         <div>
           <h4>Como você quer estudar ?</h4>
           <div style={{ display: 'flex', gap: 20, marginTop: 30 }}>
-            <CheckBox
+            <MainCheckBox
               checked={presential}
               id="presencial"
               name="presencial"
@@ -111,7 +111,7 @@ export function ModalContent() {
               }}
             />
             <span className="label-checkbox">Presencial</span>
-            <CheckBox
+            <MainCheckBox
               checked={distance}
               id="distance"
               name="distance"
