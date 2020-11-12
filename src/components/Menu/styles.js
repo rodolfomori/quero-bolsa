@@ -1,6 +1,13 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 
+const transitionCss = css`
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+`
 export const Container = styled.nav`
   background-color: ${(props) => props.theme.mainBlue};
 `
@@ -11,6 +18,13 @@ export const WrapperMenu = styled.nav`
   align-items: flex-start;
   justify-content: space-between;
   padding: 0 16px;
+
+  @media (${(props) => props.theme.desktop}) {
+    max-width: ${(props) => props.theme.maxWidthDesktop};
+    margin: 0 auto;
+    padding: 0;
+    justify-content: end;
+  }
 `
 
 export const WrapperSubMenu = styled.nav`
@@ -22,7 +36,7 @@ export const WrapperSubMenu = styled.nav`
   padding: 0 16px;
   flex-direction: column;
   transition: max-height 0.15s ease-in-out;
-  position: fixed;
+  position: absolute;
   width: 100%;
 `
 
@@ -30,7 +44,18 @@ export const MyAccountLink = styled.a`
   color: white;
   font-weight: 700;
   padding: 12px 0;
-  font-size: 15px;
+  font-size: 16px;
+
+  @media (${(props) => props.theme.desktop}) {
+    margin: 0 25px;
+    padding: 12px 15px;
+    ${transitionCss}
+
+    &:hover {
+      ${transitionCss}
+      background: ${(props) => props.theme.secondaryBlue};
+    }
+  }
 `
 
 export const MenuLink = styled.a`
@@ -52,5 +77,5 @@ export const SubMenuLink = styled.a`
 `
 
 export const ArrowIcon = styled(FontAwesomeIcon)`
-  margin-top: 16px;
+  margin-top: 14px;
 `

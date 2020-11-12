@@ -17,6 +17,7 @@ export const SelectStyle = styled(Select)`
     border: none;
   }
 
+  height: 45px;
   margin-top: 3px;
   font-weight: 300;
   width: 100%;
@@ -34,12 +35,18 @@ export const SelectStyle = styled(Select)`
   padding-right: 0;
   border: 1px solid #4a5759;
   border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
 
   & .Select__single-value {
     color: ${(props) => props.theme.blackText};
     padding-left: 15px;
   }
-
+  & .Select__control {
+    box-shadow: none;
+  }
   & .Select__indicator-separator {
     display: none;
   }
@@ -53,6 +60,6 @@ export const SelectStyle = styled(Select)`
   }
 
   & .Select__menu {
-    font-size: 14px;
+    font-size: 16px;
   }
 `

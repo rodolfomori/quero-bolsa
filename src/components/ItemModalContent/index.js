@@ -30,7 +30,7 @@ export function ItemModalContent({ data, index, storageCourse }) {
           <CheckBox
             defaultChecked={isChecked || false}
             id={index}
-            name="distance"
+            name="course"
             style={{
               fontStyle: 'normal',
               fontWeight: 300,
@@ -43,10 +43,17 @@ export function ItemModalContent({ data, index, storageCourse }) {
             <img src={scholarShipsData.university.logo_url} />
           </div>
           <WrapperItens>
-            <p className="main-title">{scholarShipsData.course.name}</p>
-            <p className="course-level">{scholarShipsData.course.level}</p>
-            Bolsa de <span className="percent">{scholarShipsData.discount_percentage}%</span>
-            <p className="price">{formatPrice(scholarShipsData.price_with_discount)}</p>
+            <div className="first-child-div">
+              <p className="main-title">{scholarShipsData.course.name}</p>
+              <p className="course-level">{scholarShipsData.course.level}</p>
+            </div>
+            <div className="price-div">
+              <span className="percent">
+                <span>Bolsa de </span>
+                {scholarShipsData.discount_percentage}%
+              </span>
+              <p className="price">{formatPrice(scholarShipsData.price_with_discount)}</p>
+            </div>
           </WrapperItens>
         </Container>
       )}

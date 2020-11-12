@@ -1,17 +1,18 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import styled, { keyframes } from 'styled-components'
 
 export const Container = styled.div`
   background-color: #ffffff;
-  height: 100vh;
-  width: 100vw;
   z-index: 999;
   position: absolute;
+  height: 100vh;
   top: 0;
-  margin: 70px 0;
+  margin: 70px 15px;
   opacity: 1;
   padding: 16px;
   overflow: auto;
+  width: calc(100vw - 30px);
+  margin-bottom: 250px;
+  max-width: 800px;
 
   h2 {
     margin-top: 10px;
@@ -27,6 +28,11 @@ export const Container = styled.div`
     font-size: 20px;
     margin-left: -12px;
   }
+
+  .price {
+    font-size: 18px;
+    margin-top: 4px;
+  }
 `
 
 export const WrapperCheck = styled.div`
@@ -39,15 +45,35 @@ export const WrapperCheck = styled.div`
 `
 
 export const WrapperSelect = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 2fr 3fr;
   justify-content: space-between;
   margin-top: 40px;
   border-bottom: 3px solid ${(props) => props.theme.gray};
   padding-bottom: 25px;
+
+  .result-select {
+      display: flex;
+      align-items: flex-end;
+      flex-direction: column;
+      @media (${(props) => props.theme.desktop}) {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+    }
+  }
+
   span {
     font-size: 18px;
     font-weight: 700;
     color: ${(props) => props.theme.blackText};
+
+    & :last-child {
+      display: flex;
+      justify-content: flex-end;
+    }
   }
 `
 
@@ -60,9 +86,23 @@ export const CheckBox = styled.input`
   width: 1.2rem;
   background-color: ${(props) => props.theme.mainBlue};
 `
+export const WrapperItensResp = styled.div`
+  @media (${(props) => props.theme.desktop}) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-top: 20px;
+  }
+`
 
-export const Icon = styled(FontAwesomeIcon)`
-  path {
-    color: ${(props) => props.theme.grayBackground};
+export const WrapperButtons = styled.div`
+  width: 100%;
+  margin-top: 35px;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: 20px;
+  @media (${(props) => props.theme.desktop}) {
+    display: flex;
+    justify-content: flex-end;
   }
 `

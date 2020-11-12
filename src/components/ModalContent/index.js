@@ -1,11 +1,11 @@
 /* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
-import { Select, CheckBox, CleanSelect, ItemModalContent, Range, ColourButton } from '..'
+import { Select, CheckBox, CleanSelect, ItemModalContent, Range, ColourButton, WhiteButton } from '..'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
 import { formatPrice, getDataFiltered, getDataSort } from '../../utils'
-import { Container, WrapperSelect } from './styles'
+import { Container, WrapperSelect, WrapperButtons, WrapperItensResp } from './styles'
 
 export function ModalContent() {
   const [city, setCity] = useState('all')
@@ -30,7 +30,14 @@ export function ModalContent() {
   }, [distance, city, presential, course, courseValue, scholarShipsData, sortFor])
 
   const storageCourse = (newCourse) => {
-    setStorageCourses([newCourse, ...storageCourses])
+    const find = storageCourses.findIndex((item) => item.id === newCourse.id)
+
+    if (find < 0) {
+      setStorageCourses([newCourse, ...storageCourses])
+    } else {
+      const newData = storageCourses.filter((item) => item.id !== newCourse.id)
+      setStorageCourses(newData)
+    }
   }
 
   const submit = () => {
@@ -66,71 +73,78 @@ export function ModalContent() {
   return (
     <Container>
       <h2>Adicionar Bolsa</h2>
-      <p>Filtre e adicione as bolsas de seu interesse.</p>
-      <Select
-        label="SELECIONE SUA CIDADE"
-        placeholder=""
-        name="cities"
-        options={[{ value: 'all', label: 'Todas as cidades' }, ...cities]}
-        value={city}
-        onChange={({ value }) => setCity(value)}
-      />
-      <Select
-        label="SELECIONE O CURSO DE SUA PREFERÊNCIA"
-        placeholder=""
-        name="courses"
-        options={[{ value: 'all', label: 'Todos os cursos' }, ...courses]}
-        value={course}
-        onChange={({ value }) => setCourse(value)}
-      />
-      <h4>Como você quer estudar ?</h4>
-      <div style={{ display: 'flex', gap: 20, marginTop: 30 }}>
-        <CheckBox
-          checked={presential}
-          id="presencial"
-          name="presencial"
-          onChange={() => {
-            setPresential(!presential)
-          }}
-          style={{
-            fontStyle: 'normal',
-            fontWeight: 300,
-            fontSize: 14,
-            lineHeight: 19,
-          }}
+      <p className="price">Filtre e adicione as bolsas de seu interesse.</p>
+      <WrapperItensResp>
+        <Select
+          label="SELECIONE SUA CIDADE"
+          placeholder=""
+          name="cities"
+          options={[{ value: 'all', label: 'Todas as cidades' }, ...cities]}
+          value={city}
+          onChange={({ value }) => setCity(value)}
         />
-        <span className="label-checkbox">Presencial</span>
-        <CheckBox
-          checked={distance}
-          id="distance"
-          name="distance"
-          onClick={() => setDistance(!distance)}
-          style={{
-            fontStyle: 'normal',
-            fontWeight: 300,
-            fontSize: 14,
-            lineHeight: 19,
-          }}
+        <Select
+          label="SELECIONE O CURSO DE SUA PREFERÊNCIA"
+          placeholder=""
+          name="courses"
+          options={[{ value: 'all', label: 'Todos os cursos' }, ...courses]}
+          value={course}
+          onChange={({ value }) => setCourse(value)}
         />
-        <span className="label-checkbox">A distância</span>
-      </div>
+      </WrapperItensResp>
+      <WrapperItensResp>
+        <div>
+          <h4>Como você quer estudar ?</h4>
+          <div style={{ display: 'flex', gap: 20, marginTop: 30 }}>
+            <CheckBox
+              checked={presential}
+              id="presencial"
+              name="presencial"
+              onChange={() => {
+                setPresential(!presential)
+              }}
+              style={{
+                fontStyle: 'normal',
+                fontWeight: 300,
+                fontSize: 14,
+                lineHeight: 19,
+              }}
+            />
+            <span className="label-checkbox">Presencial</span>
+            <CheckBox
+              checked={distance}
+              id="distance"
+              name="distance"
+              onClick={() => setDistance(!distance)}
+              style={{
+                fontStyle: 'normal',
+                fontWeight: 300,
+                fontSize: 14,
+                lineHeight: 19,
+              }}
+            />
+            <span className="label-checkbox">A distância</span>
+          </div>
+        </div>
 
-      <h4>Até quanto pode pagar ?</h4>
-      <p>{formatPrice(courseValue)}</p>
-      <Range
-        type="range"
-        value={courseValue}
-        id="pricerange"
-        name="pricerange"
-        min={min}
-        max={max}
-        step="10"
-        onChange={({ target: { value } }) => setCourseValue(value)}
-      />
-
-      <WrapperSelect style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div>
+          <h4>Até quanto pode pagar ?</h4>
+          <p className="price">{formatPrice(courseValue)}</p>
+          <Range
+            type="range"
+            value={courseValue}
+            id="pricerange"
+            name="pricerange"
+            min={min}
+            max={max}
+            step="10"
+            onChange={({ target: { value } }) => setCourseValue(value)}
+          />
+        </div>
+      </WrapperItensResp>
+      <WrapperSelect>
         <span>Resultado:</span>
-        <div style={{ display: 'flex', flexDirection: 'column' }}>
+        <div className="result-select">
           <span>Ordenar por</span>
           <CleanSelect
             placeholder="Todos os cursos"
@@ -148,9 +162,15 @@ export function ModalContent() {
           ))}
         </div>
       )}
-      <ColourButton type="button" onClick={submit}>
-        Adicionar Bolsa(s)
-      </ColourButton>
+
+      <WrapperButtons>
+        <WhiteButton style={{ maxWidth: 250 }} type="button" onClick={() => setOpenModal(false)}>
+          Cancelar
+        </WhiteButton>
+        <ColourButton disabled={filterData.length === 0} type="button" onClick={filterData.length === 0 ? '' : submit}>
+          Adicionar Bolsa(s)
+        </ColourButton>
+      </WrapperButtons>
     </Container>
   )
 }

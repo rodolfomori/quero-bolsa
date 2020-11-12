@@ -15,10 +15,25 @@ color: ${(props) => props.theme.blackText};
 -webkit-font-smoothing: antialiased
 }
 
+a {
+  cursor: pointer;
+}
+
 body, input, button,p{
-  font-family: 'Open Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: sans-serif;
   font-weight: 300;
   font-size: 16px;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+*:focus {
+    outline: none;
 }
 
 button {

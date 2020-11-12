@@ -1,16 +1,16 @@
 import React from 'react'
 
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 
-import { Container, PlusIcon } from './styles'
+import { Container, PlusIcon, FitContent } from './styles'
 
 export function ScholarShipAddButton(props) {
-  const { onClick, ...rest } = props
+  const { onClick, empty, ...rest } = props
+
+  console.log(empty)
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
-    <Container onClick={onClick} {...rest}>
-      <PlusIcon icon={faPlusCircle} />
+    <Container empty={empty} onClick={onClick} {...rest} className="container">
+      <PlusIcon />
       <h3>Adicionar curso</h3>
       <p>Clique para adicionar bolsas de </p>
       <p>cursos do seu interesse</p>
@@ -20,4 +20,5 @@ export function ScholarShipAddButton(props) {
 
 ScholarShipAddButton.propTypes = {
   onClick: PropTypes.func.isRequired,
+  empty: PropTypes.bool.isRequired,
 }

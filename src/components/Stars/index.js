@@ -12,13 +12,14 @@ export function Stars({ score }) {
     const number = Math.floor(score)
     const half = !Number.isInteger(score)
     const all = new Array(number).fill(true)
+    const voidNumber = new Array((half ? 4 : 5) - number).fill(true)
     const render = all.map((item, index) => <FaStar key={index} />)
-    const voidStar = all.map((item, index) => <FaStar key={index} />)
+    const voidStar = voidNumber.map((item, index) => <FaRegStar key={index} />)
     return (
       <Container>
         {render}
         {half && <FaStarHalfAlt />}
-        {voidStar && <FaRegStar />}
+        {voidStar.length > 0 && voidStar}
       </Container>
     )
   }

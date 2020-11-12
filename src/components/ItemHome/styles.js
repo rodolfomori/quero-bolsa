@@ -1,12 +1,20 @@
 import styled, { css } from 'styled-components'
 
+const transitionCss = css`
+  -webkit-transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -ms-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
+`
+
 export const Container = styled.div`
-  /* display: grid;
-  grid-template-rows: 2fr 1fr 2fr; */
   box-shadow: 0 0 4px 6px rgba(0, 0, 0, 0.05);
   margin: 16px;
   align-items: center;
   background-color: #ffffff;
+  cursor: pointer;
+  ${transitionCss}
 
   .last-child-wrapper {
     gap: 5px;
@@ -15,11 +23,21 @@ export const Container = styled.div`
     text-transform: none;
     margin-bottom: 10px;
   }
-`
 
-const style = css`
-  font-weight: 700;
-  font-size: 18px;
+  .middle-child {
+    border-bottom: 3px solid ${(props) => props.theme.gray};
+    border-top: 3px solid ${(props) => props.theme.gray};
+  }
+
+  .middle-child-div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  &:hover {
+    box-shadow: 0 0 12px 14px rgba(0, 0, 0, 0.3);
+  }
 `
 
 export const WrapperItens = styled.div`
@@ -28,7 +46,7 @@ export const WrapperItens = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  border-bottom: 3px solid ${(props) => props.theme.gray};
+  /* border-bottom: 3px solid ${(props) => props.theme.gray}; */
 
   .first-child {
     margin-top: 30px;
@@ -71,8 +89,19 @@ export const WrapperItens = styled.div`
   .month {
     font-size: 20px;
   }
+
+  .last-child {
+    @media (${(props) => props.theme.desktop}) {
+      border-bottom: none;
+    }
+  }
 `
 
+export const Image = styled.div`
+  height: 120px;
+  display: flex;
+  align-items: center;
+`
 export const WrapperStars = styled.div`
   margin-top: 30px;
   display: flex;

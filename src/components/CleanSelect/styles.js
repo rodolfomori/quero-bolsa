@@ -6,12 +6,12 @@ export const SelectStyle = styled(Select)`
   div {
     border: none;
   }
-
-  width: 250px;
+  min-width: 195px;
+  max-width: 300px;
   font-size: 18px;
   font-weight: 700;
   display: block;
-  background: ${(props) => props.theme.grayBackground};
+  background: white;
   outline: none;
   color: ${(props) => props.theme.secondaryBlue};
   border: none;
@@ -22,9 +22,8 @@ export const SelectStyle = styled(Select)`
   letter-spacing: normal;
   min-height: calc(1.875rem + (1px * 2));
   cursor: pointer;
-  padding-right: 0;
 
-  background: ${(props) => props.theme.grayBackground};
+  background: white;
 
   & .Select__single-value {
     color: ${(props) => props.theme.secondaryBlue};
@@ -32,11 +31,11 @@ export const SelectStyle = styled(Select)`
 
   & .Select__placeholder {
     color: ${(props) => props.theme.secondaryBlue};
-    background: ${(props) => props.theme.grayBackground};
+    background: white;
   }
 
   & .Select__control {
-    background: ${(props) => props.theme.grayBackground};
+    background: white;
   }
 
   & .Select__indicator-separator {
@@ -60,15 +59,14 @@ export const SelectStyle = styled(Select)`
     border-radius: 0;
   }
 
+  & .Select__indicator {
+    margin: 0;
+    padding: 0;
+  }
+
   path {
     color: ${(props) => props.theme.secondaryBlue};
     width: 29px;
     height: 29px;
   }
-`
-
-export const ErrorMessage = styled.span`
-  color: red;
-  position: absolute;
-  font-size: 12px;
 `

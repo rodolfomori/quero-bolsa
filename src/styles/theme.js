@@ -8,4 +8,6 @@ export const theme = {
   grayBackground: '#FBFBFB',
   modalBackground: '#1F2D30',
   gray: '#f0f0f0',
+  desktop: 'min-width: 620px',
+  maxWidthDesktop: '1444px',
 }

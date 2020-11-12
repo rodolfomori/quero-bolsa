@@ -1,59 +1,92 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { faComments, faEnvelope, faInfoCircle } from '@fortawesome/free-solid-svg-icons'
-
-import { Container, FooterItem, Icon, Wrapper, FooterMessage, Whatsapp } from './styles'
+import { Container, FooterItem, Wrapper, FooterMessage, Whatsapp, Comments, Envelope, InfoCircle } from './styles'
 
 export function Footer() {
-  const whatsapp = {
-    icon: <Whatsapp />,
-    title: '0800 123 2222',
-    description: 'Sex - Sex 8h-22h',
-    subtitle: 'Segunda a sexta de 8h às 22h',
-    link: `tel:08001232222`,
-    class: 'whatsapp',
-  }
+  const [desktop, setDesktop] = useState(0)
 
+  useEffect(() => {
+    function handleResize() {
+      setDesktop(window.innerWidth > 980)
+    }
+
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
   const itens = [
     {
-      icon: faComments,
+      icon: <Whatsapp />,
+      title: '0800 123 2222',
+      subTitle: 'Segunda a sexta de 8h às 22h',
+      description: 'Sex - Sex 8h-22h',
+      link: ``,
+      class: 'whatsapp',
+    },
+    {
+      icon: <Comments />,
       title: 'Chat',
       titleDesktop: 'Chat Ao Vivo',
       description: 'Sex - Sex 8h-22h',
-      link: '#',
+      link: '',
     },
     {
-      icon: faEnvelope,
+      icon: <Envelope />,
       title: 'E-mail',
       titleDesktop: 'Mande um e-mail',
       description: 'Respondemos rapidinho',
-      link: 'mailto:email@email.com',
+      link: '',
     },
     {
-      icon: faInfoCircle,
+      icon: <InfoCircle />,
       title: 'Ajuda',
       titleDesktop: 'Central de ajuda',
       description: 'Encontre todas as respostas',
-      link: '#',
+      link: '',
     },
   ]
 
   return (
     <Container>
-      <FooterItem style={{ marginBottom: 3, flexDirection: 'row', gap: 20 }}>
-        {whatsapp.icon}
-        <div>
-          <h3>{whatsapp.title}</h3>
-          <h4>{whatsapp.subtitle}</h4>
-        </div>
-      </FooterItem>
+      {!desktop && (
+        <FooterItem style={{ marginBottom: 3, flexDirection: 'row', gap: 20 }}>
+          {itens[0].icon}
+          <div>
+            <h3>{itens[0].title}</h3>
+            <h4>{itens[0].subTitle}</h4>
+          </div>
+        </FooterItem>
+      )}
       <Wrapper>
-        {itens.map((item) => (
-          <FooterItem key={item.title}>
-            <Icon icon={item.icon} />
-            <p>{item.title}</p>
-          </FooterItem>
-        ))}
+        {desktop
+          ? itens.map((item, index) =>
+              index > 0 ? (
+                <FooterItem key={item.title}>
+                  {item.icon}
+                  <div>
+                    <h3>{item.titleDesktop}</h3>
+                    <h4>{item.description}</h4>
+                  </div>
+                </FooterItem>
+              ) : (
+                <FooterItem style={{ flexDirection: 'row', gap: 20 }}>
+                  {itens[0].icon}
+                  <div>
+                    <h3>{itens[0].title}</h3>
+                    <h4>{itens[0].description}</h4>
+                  </div>
+                </FooterItem>
+              )
+            )
+          : itens.map(
+              (item, index) =>
+                index > 0 && (
+                  <FooterItem key={item.title}>
+                    {item.icon}
+                    <p>{item.title}</p>
+                  </FooterItem>
+                )
+            )}
       </Wrapper>
       <FooterMessage>Feito com ♡ pela Quero Educação</FooterMessage>
     </Container>

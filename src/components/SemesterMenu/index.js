@@ -20,13 +20,14 @@
 import React, { useState } from 'react'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
-import { Container, ChooseButtonMain, ChooseButtonSeccond, ChooseButtonFirst } from './styles'
+import { Container, ChooseButtonMain, ChooseButtonSeccond, ChooseButtonFirst, FitContent } from './styles'
 
 export function SemesterMenu() {
   const [semester, setSemester] = useState(null)
   const { chooseSemester } = useScholarShipsData()
 
   return (
+    // <FitContent>
     <Container>
       <ChooseButtonMain
         semester={semester}
@@ -53,8 +54,9 @@ export function SemesterMenu() {
           chooseSemester('2020.1')
         }}
       >
-        1° semestre de 2019
+        1° semestre de 2020
       </ChooseButtonFirst>
     </Container>
+    // </FitContent>
   )
 }

@@ -17,6 +17,10 @@ export const Container = styled.div`
     max-width: 90%;
     max-height: 70px;
   }
+
+  @media (${(props) => props.theme.desktop}) {
+    grid-template-columns: 1fr 2fr 5fr;
+  }
 `
 
 const style = css`
@@ -27,6 +31,13 @@ const style = css`
 export const WrapperItens = styled.div`
   padding-left: 15px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .first-child-div {
+    width: 100%;
+  }
 
   .main-title {
     color: ${(props) => props.theme.secondaryBlue};
@@ -37,16 +48,39 @@ export const WrapperItens = styled.div`
 
   .course-level {
     padding-bottom: 30px;
+    @media (${(props) => props.theme.desktop}) {
+      padding: 0;
+    }
   }
 
   .percent {
     color: ${(props) => props.theme.green};
     ${style}
+    span {
+      font-weight: 500;
+    }
+  }
+
+  .price-div {
+    display: flex;
+    flex-direction: column;
+    align-items: baseline;
+    width: 100%;
+
+    @media (${(props) => props.theme.desktop}) {
+      align-items: flex-end;
+      width: auto;
+      min-width: 150px;
+    }
   }
 
   .price {
     color: ${(props) => props.theme.green};
     ${style}
-    padding-top:10px;
+  }
+
+  @media (${(props) => props.theme.desktop}) {
+    flex-direction: row;
+    justify-content: space-between;
   }
 `

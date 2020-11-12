@@ -17,13 +17,38 @@ export const Container = styled.div`
   h2 {
     font-size: 30px;
     font-weight: 600;
+    @media (${(props) => props.theme.desktop}) {
+      margin-left: 12px;
+    }
   }
 
   p {
-    word-spacing: 6px;
+    word-spacing: 2px;
     line-height: 25px;
     margin-top: 16px;
     font-weight: 400;
+    padding-right: 16px;
+    @media (${(props) => props.theme.desktop}) {
+      margin-left: 12px;
+    }
+  }
+
+  .active-link {
+    color: ${(props) => props.theme.blackText};
+    font-weight: 500;
+  }
+  @media (${(props) => props.theme.desktop}) {
+    margin-left: 28px;
+    max-width: ${(props) => props.theme.maxWidthDesktop};
+
+    a {
+      padding-right: 10px;
+    }
+
+    span {
+      font-weight: 700;
+      color: ${(props) => props.theme.secondaryBlue};
+    }
   }
 `
 

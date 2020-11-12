@@ -5,9 +5,8 @@ import React, { useState, useEffect } from 'react'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 
-import { ModalContent } from '..'
-
-import { Container, Icon } from './styles'
+import { ModalContent } from '../../components'
+import { Background, Icon, Container, WrapperButton } from './styles'
 
 export function Modal({ children, open, onClose = () => {}, data }) {
   const [openBg, setOpenBg] = useState(false)
@@ -24,12 +23,15 @@ export function Modal({ children, open, onClose = () => {}, data }) {
   if (!openBg) return null
   return (
     <>
-      <Container open={open}>
+      <WrapperButton>
         <button open={open} type="button" onClick={() => onClose()}>
           <Icon icon={faTimes} />
         </button>
+      </WrapperButton>
+      <Container>
+        <Background open={open}></Background>
+        <ModalContent style={{ margin: '0 20px' }} data={data} open={open} />
       </Container>
-      <ModalContent data={data} open={open} />
     </>
   )
 }
@@ -38,4 +40,5 @@ Modal.propTypes = {
   children: PropTypes.element.isRequired,
   open: PropTypes.bool.isRequired,
   onClose: PropTypes.func,
+  data: PropTypes.array,
 }
