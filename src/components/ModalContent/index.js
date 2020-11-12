@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
 import { Select, MainCheckBox, CleanSelect, ItemModalContent, Range, ColourButton, WhiteButton } from '..'
@@ -15,6 +14,7 @@ export function ModalContent() {
   const [filterData, setFilterData] = useState(false)
   const [sortFor, setSortFor] = useState(0)
   const [storageCourses, setStorageCourses] = useState([])
+  const [enableButton, setEnableButton] = useState(false)
 
   const [courseValue, setCourseValue] = useState(1000)
   const { scholarShipsData, cities, courses, maxMin, addFavoritesCourses, setOpenModal } = useScholarShipsData()
@@ -25,11 +25,25 @@ export function ModalContent() {
   }, [scholarShipsData])
 
   useEffect(() => {
+    const verifyEnableButton = () => {
+      for (let i = filterData.length - 1; i >= 0; i--) {
+        for (let j = 0; j < storageCourses.length; j++) {
+          if (filterData[i] && filterData[i].id === storageCourses[j].id) {
+            return false
+          }
+        }
+      }
+      return true
+    }
+    setEnableButton(verifyEnableButton())
+  }, [filterData, storageCourses])
+
+  useEffect(() => {
     const newData = getDataFiltered({ data: scholarShipsData, value: courseValue, city, distance, presential, course })
     setFilterData(getDataSort({ data: newData, sortFor }))
   }, [distance, city, presential, course, courseValue, scholarShipsData, sortFor])
 
-  const storageCourse = (newCourse) => {
+  const addCourse = (newCourse) => {
     const find = storageCourses.findIndex((item) => item.id === newCourse.id)
 
     if (find < 0) {
@@ -158,7 +172,13 @@ export function ModalContent() {
       {filterData && (
         <div>
           {filterData.map((item, index) => (
-            <ItemModalContent key={index} storageCourse={storageCourse} index={index} data={item} />
+            <ItemModalContent
+              key={item.id}
+              storageCourse={addCourse}
+              onCache={storageCourses}
+              index={index}
+              data={item}
+            />
           ))}
         </div>
       )}
@@ -167,7 +187,7 @@ export function ModalContent() {
         <WhiteButton style={{ maxWidth: 250 }} type="button" onClick={() => setOpenModal(false)}>
           Cancelar
         </WhiteButton>
-        <ColourButton disabled={filterData.length === 0} type="button" onClick={filterData.length === 0 ? '' : submit}>
+        <ColourButton disabled={enableButton} type="button" onClick={enableButton ? () => {} : submit}>
           Adicionar Bolsa(s)
         </ColourButton>
       </WrapperButtons>

@@ -25,7 +25,6 @@ const ScholarShipsDataProvider = ({ children }) => {
           return item
         })
 
-        console.log(data)
         setScholarShipsData(finalData)
         setCities(getAllCities(data))
         setCourses(getAllCourses(data))

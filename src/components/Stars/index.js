@@ -1,5 +1,3 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-expressions */
 import React from 'react'
 import { FaRegStar, FaStarHalfAlt, FaStar } from 'react-icons/fa'
 

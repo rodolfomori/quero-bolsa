@@ -1,9 +1,8 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import { Container, Label, Spacing } from './styles'
+import { Container } from './styles'
 
 export const MainCheckBox = ({ id, name, checked, ...rest }) => (
   <Container>
@@ -17,7 +16,7 @@ export const MainCheckBox = ({ id, name, checked, ...rest }) => (
 )
 
 MainCheckBox.propTypes = {
-  id: PropTypes.any.isRequired,
-  name: PropTypes.string.isRequired,
-  checked: PropTypes.bool.isRequired,
+  id: PropTypes.any,
+  name: PropTypes.string,
+  checked: PropTypes.bool,
 }

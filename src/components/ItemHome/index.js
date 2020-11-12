@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React from 'react'
 
 import PropTypes from 'prop-types'
@@ -64,5 +63,5 @@ export function ItemHome({ favorite }) {
 }
 
 ItemHome.propTypes = {
-  favorite: PropTypes.array.isRequired,
+  favorite: PropTypes.array,
 }

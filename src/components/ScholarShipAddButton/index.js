@@ -2,7 +2,7 @@ import React from 'react'
 
 import PropTypes from 'prop-types'
 
-import { Container, PlusIcon, FitContent } from './styles'
+import { Container, PlusIcon } from './styles'
 
 export function ScholarShipAddButton(props) {
   const { onClick, empty, ...rest } = props
@@ -19,6 +19,6 @@ export function ScholarShipAddButton(props) {
 }
 
 ScholarShipAddButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  empty: PropTypes.bool.isRequired,
+  onClick: PropTypes.func,
+  empty: PropTypes.bool,
 }

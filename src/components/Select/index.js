@@ -1,5 +1,3 @@
-/* eslint-disable react/forbid-prop-types */
-/* eslint-disable react/jsx-props-no-spreading */
 import React from 'react'
 
 import PropTypes from 'prop-types'
@@ -23,9 +21,9 @@ export const Select = ({ id, name, options, value, label = '', ...rest }) => (
 )
 
 Select.propTypes = {
-  id: PropTypes.any.isRequired,
-  value: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
+  id: PropTypes.any,
+  value: PropTypes.number,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  options: PropTypes.array,
 }

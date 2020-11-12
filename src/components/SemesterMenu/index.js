@@ -1,33 +1,13 @@
-// import React, { useState } from 'react'
-
-// import { Container, ChooseButtonMain, ChooseButtonSeccond, ChooseButtonFirst } from './styles'
-
-// export function SemesterMenu() {
-//   const [semester, setSemester] = useState(null)
-//   const chooseSemester = (semesterChosen = null) => {
-//     setSemester(semesterChosen)
-//   }
-
-//   return (
-//     <Container>
-//       <ChooseButtonMain onClick={chooseSemester}>Todos os semestres</ChooseButtonMain>
-//       <ChooseButtonSeccond onClick={() => chooseSemester(2)}>2° semestre de 2019</ChooseButtonSeccond>
-//       <ChooseButtonFirst onClick={() => chooseSemester(1)}>1° semestre de 2019</ChooseButtonFirst>
-//     </Container>
-//   )
-// }
-
 import React, { useState } from 'react'
 
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
-import { Container, ChooseButtonMain, ChooseButtonSeccond, ChooseButtonFirst, FitContent } from './styles'
+import { Container, ChooseButtonMain, ChooseButtonSeccond, ChooseButtonFirst } from './styles'
 
 export function SemesterMenu() {
   const [semester, setSemester] = useState(null)
   const { chooseSemester } = useScholarShipsData()
 
   return (
-    // <FitContent>
     <Container>
       <ChooseButtonMain
         semester={semester}
@@ -57,6 +37,5 @@ export function SemesterMenu() {
         1° semestre de 2020
       </ChooseButtonFirst>
     </Container>
-    // </FitContent>
   )
 }

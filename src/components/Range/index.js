@@ -12,8 +12,8 @@ export const Range = ({ value, min, max, step, ...rest }) => (
 )
 
 Range.propTypes = {
-  value: PropTypes.number.isRequired,
-  min: PropTypes.number.isRequired,
-  max: PropTypes.number.isRequired,
-  step: PropTypes.number.isRequired,
+  value: PropTypes.number,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  step: PropTypes.number,
 }

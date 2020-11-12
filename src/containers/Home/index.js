@@ -3,7 +3,7 @@ import React from 'react'
 import { Header, Menu, SubHeader, SemesterMenu, ScholarShipAddButton, Footer, ItemHome } from '../../components'
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
 import { Modal } from '../Modal'
-import { Container, FitContainer } from './style'
+import { Container, FitContainer, Wrapper } from './style'
 
 export const Home = () => {
   const { favorites, openModal, setOpenModal } = useScholarShipsData()
@@ -12,7 +12,7 @@ export const Home = () => {
     <>
       <Header />
       <Menu />
-      <div style={{ display: 'flex', justifyContent: 'center' }}>
+      <Wrapper>
         <FitContainer>
           <SubHeader />
           <SemesterMenu />
@@ -30,7 +30,7 @@ export const Home = () => {
               favorites.map((item, index) => <ItemHome key={index} favorite={item} index={index} />)}
           </Container>
         </FitContainer>
-      </div>
+      </Wrapper>
       <Footer />
       <Modal open={openModal} onClose={() => setOpenModal(false)} />
     </>

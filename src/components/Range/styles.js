@@ -31,7 +31,7 @@ export const Container = styled.div`
     margin-top: -15px;
   }
   input[type='range']:focus::-webkit-slider-runnable-track {
-    background: #ac51b5;
+    background: ${(props) => props.theme.mainBlue};
   }
   input[type='range']::-moz-range-track {
     width: 100%;
@@ -39,7 +39,7 @@ export const Container = styled.div`
     cursor: pointer;
     animate: 0.2s;
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
-    background: #ac51b5;
+    background: ${(props) => props.theme.mainBlue};
     border-radius: 25px;
     border: 0px solid #000101;
   }
@@ -49,7 +49,7 @@ export const Container = styled.div`
     height: 20px;
     width: 39px;
     border-radius: 7px;
-    background: #65001c;
+    background: ${(props) => props.theme.mainBlue};
     cursor: pointer;
   }
   input[type='range']::-ms-track {
@@ -63,13 +63,13 @@ export const Container = styled.div`
     color: transparent;
   }
   input[type='range']::-ms-fill-lower {
-    background: #ac51b5;
+    background: ${(props) => props.theme.mainBlue};
     border: 0px solid #000101;
     border-radius: 50px;
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;
   }
   input[type='range']::-ms-fill-upper {
-    background: #ac51b5;
+    background: ${(props) => props.theme.mainBlue};
     border: 0px solid red;
     border-radius: 50px;
     box-shadow: 0px 0px 0px #000000, 0px 0px 0px #0d0d0d;

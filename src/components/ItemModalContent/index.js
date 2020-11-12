@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-expressions */
 import React, { useState, useEffect } from 'react'
 
 import { MainCheckBox } from '..'
@@ -9,28 +8,35 @@ import { useScholarShipsData } from '../../hooks/scholarShipsData'
 import { formatPrice } from '../../utils'
 import { Container, WrapperItens } from './styles'
 
-export function ItemModalContent({ data, index, storageCourse }) {
+export function ItemModalContent({ data, index, storageCourse, onCache }) {
   const [scholarShipsData, setScholarShipsData] = useState(false)
   const [isChecked, setIsChecked] = useState(false)
 
   const { favorites } = useScholarShipsData()
 
   useEffect(() => {
-    favorites.forEach((element) => {
-      element.id === data.id && setIsChecked(true)
-    })
+    const isChecked = () => {
+      favorites.forEach((element) => {
+        if (element.id === data.id) setIsChecked(true)
+      })
+
+      onCache.forEach((element) => {
+        if (element.id === data.id) setIsChecked(true)
+      })
+    }
+    data && onCache && isChecked()
 
     data && setScholarShipsData(data)
-  }, [data, favorites])
+  }, [data, favorites, onCache])
 
   return (
     <>
       {scholarShipsData && (
         <Container>
           <MainCheckBox
-            defaultChecked={isChecked || false}
-            id={index}
-            name="course"
+            defaultChecked={isChecked}
+            id={data.id}
+            name={data.id}
             style={{
               fontStyle: 'normal',
               fontWeight: 300,
@@ -62,7 +68,8 @@ export function ItemModalContent({ data, index, storageCourse }) {
 }
 
 ItemModalContent.propTypes = {
-  data: PropTypes.array.isRequired,
-  index: PropTypes.number.isRequired,
-  storageCourse: PropTypes.func.isRequired,
+  data: PropTypes.array,
+  index: PropTypes.number,
+  storageCourse: PropTypes.func,
+  onCache: PropTypes.array,
 }

@@ -5,6 +5,10 @@ export const FitContainer = styled.div`
   justify-content: center;
   flex-direction: column;
 `
+export const Wrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
 export const Container = styled.div`
   display: grid;
   max-width: ${(props) => props.theme.maxWidthDesktop};

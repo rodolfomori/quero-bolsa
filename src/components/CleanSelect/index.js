@@ -28,9 +28,9 @@ export const CleanSelect = ({ id, name, options, value, ...rest }) => {
 }
 
 CleanSelect.propTypes = {
-  id: PropTypes.any.isRequired,
-  value: PropTypes.number.isRequired,
-  label: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
-  options: PropTypes.array.isRequired,
+  id: PropTypes.any,
+  value: PropTypes.number,
+  label: PropTypes.string,
+  name: PropTypes.string,
+  options: PropTypes.array,
 }

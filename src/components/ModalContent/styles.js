@@ -1,4 +1,4 @@
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 export const Container = styled.div`
   background-color: #ffffff;
@@ -53,15 +53,14 @@ export const WrapperSelect = styled.div`
   padding-bottom: 25px;
 
   .result-select {
-      display: flex;
-      align-items: flex-end;
-      flex-direction: column;
-      @media (${(props) => props.theme.desktop}) {
-        flex-direction: row;
-        align-items: center;
-        justify-content: flex-end;
-        gap: 10px;
-      }
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    @media (${(props) => props.theme.desktop}) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 10px;
     }
   }
 
