@@ -6,7 +6,17 @@ import PropTypes from 'prop-types'
 import { ModalContent } from '../../components'
 import { Background, Icon, Container, WrapperButton, CloseButton, FitContent } from './styles'
 
-export function Modal({ open, onClose = () => {}, data }) {
+export function Modal({ children, open, onClose = () => {}, data }) {
+  const [openBg, setOpenBg] = useState(false)
+
+  useEffect(() => {
+    if (open) return setOpenBg(open)
+    setTimeout(() => {
+      setOpenBg(open)
+    }, 1)
+  }, [open])
+
+  if (!openBg) return null
   return (
     <>
       <FitContent>
@@ -25,8 +35,8 @@ export function Modal({ open, onClose = () => {}, data }) {
 }
 
 Modal.propTypes = {
-  children: PropTypes.element,
-  open: PropTypes.bool,
+  children: PropTypes.element.isRequired,
+  open: PropTypes.bool.isRequired,
   onClose: PropTypes.func,
   data: PropTypes.array,
 }
