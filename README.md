@@ -3,7 +3,7 @@
     Quero Bolsa &nbsp; :mortar_board:
 </h1>
 
-  [You are ONLINE, try Now](https://quero-bolsa.netlify.app)  :tada:
+  [You are ONLINE, try Now](https://quero-bolsa.netlify.app)  :tada:<br>
 [![Netlify Status](https://api.netlify.com/api/v1/badges/558d449f-56e0-4457-9120-69590d38cf43/deploy-status)](https://app.netlify.com/sites/quero-bolsa/deploys)
 
 <h4 align="center">
