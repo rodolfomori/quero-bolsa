@@ -2,11 +2,13 @@ import React, { useState, useEffect } from 'react'
 
 import { Select, MainCheckBox, CleanSelect, ItemModalContent, Range, ColourButton, WhiteButton } from '..'
 
+import PropTypes from 'prop-types'
+
 import { useScholarShipsData } from '../../hooks/scholarShipsData'
 import { formatPrice, getDataFiltered, getDataSort } from '../../utils'
 import { Container, WrapperSelect, WrapperButtons, WrapperItensResp } from './styles'
 
-export function ModalContent() {
+export function ModalContent({ open }) {
   const [city, setCity] = useState('all')
   const [presential, setPresential] = useState(true)
   const [distance, setDistance] = useState(true)
@@ -85,7 +87,7 @@ export function ModalContent() {
     },
   ]
   return (
-    <Container>
+    <Container open={open}>
       <h2>Adicionar Bolsa</h2>
       <p className="price">Filtre e adicione as bolsas de seu interesse.</p>
       <WrapperItensResp>
@@ -193,4 +195,8 @@ export function ModalContent() {
       </WrapperButtons>
     </Container>
   )
+}
+
+ModalContent.propTypes = {
+  open: PropTypes.bool.isRequired,
 }

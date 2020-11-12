@@ -23,7 +23,7 @@ export const Container = styled.div`
     grid-template-columns: 1fr 1fr 1fr;
   }
 
-  @media (min-width: 1200px) {
+  @media (min-width: 1450px) {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 `

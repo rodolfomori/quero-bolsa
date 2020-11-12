@@ -1,4 +1,14 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+const animationStart = keyframes`
+  0% { height: 0; }
+  100% { height: 100vh; }
+`
+
+const animationEnd = keyframes`
+  0% { height: 100vh; }
+  100% { height: 0; }
+`
 
 export const Container = styled.div`
   background-color: #ffffff;
@@ -13,6 +23,7 @@ export const Container = styled.div`
   width: calc(100vw - 30px);
   margin-bottom: 250px;
   max-width: 800px;
+  animation: ${(props) => (props.open ? animationStart : animationEnd)} 0.7s 0s both;
 
   h2 {
     margin-top: 10px;

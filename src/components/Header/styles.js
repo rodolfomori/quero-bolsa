@@ -78,7 +78,8 @@ export const WrapperInfo = styled.div`
       padding-right: 13px;
       border-right: 3px solid #e3e3e3;
       @media (${(props) => props.theme.desktop}) {
-        margin-left:40px;
+        margin-left: 40px;
+      }
     }
   }
 `
@@ -95,11 +96,11 @@ export const WrapperUser = styled.div`
   gap: 3px;
   border-left: 3px solid #e3e3e3;
   padding-left: 13px;
-
   @media (${(props) => props.theme.desktop}) {
     border-left: none;
     flex-direction: row;
     justify-content: flex-end;
+    margin-right: 40px;
   }
 `
 export const Text = styled.p`

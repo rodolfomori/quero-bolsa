@@ -1,13 +1,42 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+
+import { ModalContent } from '../../components'
+
+const animationBgStart = keyframes`
+  0% {
+    background-color: ${(props) => props.theme.modalBackground};
+    opacity: 0;
+  }
+  100% {
+    background-color: ${(props) => props.theme.modalBackground};
+    opacity: 0.88;
+  }
+`
+const animationBgEnd = keyframes`
+  0% {
+    background-color: ${(props) => props.theme.modalBackground};
+    opacity: 0.88;
+  }
+  100% {
+    background-color: ${(props) => props.theme.modalBackground};
+    opacity: 0;
+  }
+`
+
+export const ModalItem = styled(ModalContent)`
+  margin: 0 20px;
+`
 
 export const Container = styled.div`
   display: flex;
   justify-content: center;
+  z-index: 9999;
 `
 export const FitContent = styled.div`
   display: flex;
   justify-content: center;
+  z-index: 9999;
 `
 
 export const WrapperButton = styled.div`
@@ -27,6 +56,7 @@ export const CloseButton = styled.button`
   border: none;
   font-size: 36px;
   position: absolute;
+  z-index: 9999;
 
   path {
     color: ${(props) => props.theme.grayBackground};
@@ -44,6 +74,7 @@ export const Background = styled.div`
   top: 0;
   display: flex;
   justify-content: flex-end;
+  animation: ${(props) => (props.open ? animationBgStart : animationBgEnd)} 0.7s 0s both;
 `
 
 export const Icon = styled(FontAwesomeIcon)`

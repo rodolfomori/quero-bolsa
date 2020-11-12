@@ -52,20 +52,58 @@ $ yarn or npm install
 $ yarn or npm start
 ```
 
+## :file_folder: Folder structure
+
+```bash
+
+.
+
+├── public
+│   └── index.html
+├── src >> source code
+│   ├── assets.js
+│   ├── components
+│   ├── hooks
+│   ├── servicees
+│   │   └── api.js
+│   ├── styles
+│   │   └── globalStyles.js
+│   │   └── theme.js
+│   ├── utils
+│   ├── App.js
+│   ├── index.js
+│   └── routes.js
+│
+│
+├── .editorconfig
+├── .env.test.js
+├── .eslintrc.js
+├── .gitignore.js
+├── .prettierrc.js
+├── nodemon.json.js
+├── README.md
+└── package.json
+
+
+
+```
 ## :sunny: Result
 
+  <div style="display: flex;   flex-direction: column;
+  align-items: center;">
+  <h1 align="center" style="display: flex; flex-direction:row;">
+      <img   style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot.png" />
+        <img   style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-2.png" />
 
-<h3 align="center">Mobile</h3>
-<h1 align="center">
-    <img  alt="Ask me" src="src/assets/img/mobile.gif" />
-    <br>
-</h1>
+  </h1>
+  <h1 align="center" style="display: flex; flex-direction:row;">
+      <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-3.png" />
+      <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-4.png" />
+          <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-5.png" />
+  </h1>
+  </div>
 
-  <h3 align="center">Desktop</h3>
-<h1 align="center">
-    <img alt="Ask me" src="src/assets/img/web.gif" width="700px"/>
-    <br>
-</h1>
+
 ----
 
 Made with ♥ by Rodolfo Mori :wave: [Get in touch!](https://www.linkedin.com/in/rodolfomori/)
@@ -78,40 +116,3 @@ Made with ♥ by Rodolfo Mori :wave: [Get in touch!](https://www.linkedin.com/in
 
 
 
-<h3>Folder structure. </h3>
-
-```bash
-
-.
-├── README.md
-├── npmrc
-├── package-lock.json
-├── package.json
-└── src >> source code
-│   ├── server.js ..................... app main entry point.
-│   ├── app.js
-│   ├── routes.js
-│   ├── config
-│   │   └── database.js .................. database config.
-│   ├── database
-│   │   └── index.js
-│   │   └── migrations
-│   └── app
-│       └── constrollers
-│           ├── AnswerController.js
-│           └── QuestionController.js
-│
-├── .dockerignore
-├── .env
-├── .env.test.js
-├── .eslintrc.js
-├── .gitignore.js
-├── .prettierrc.js
-├── .sequelizerc.js
-├── .docker-compose.yml.js
-├── .Dockerfile.js
-├── jest.config.js
-├── nodemon.json.js
-└── package.json
-
-```

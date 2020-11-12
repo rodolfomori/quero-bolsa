@@ -46,7 +46,8 @@ export const WrapperItens = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  /* border-bottom: 3px solid ${(props) => props.theme.gray}; */
+  padding-left: 10px;
+  padding-right: 10px;
 
   .first-child {
     margin-top: 30px;
@@ -67,10 +68,11 @@ export const WrapperItens = styled.div`
   }
 
   .qb-text {
-    font-size: 20px;
+    font-size: 19px;
     color: ${(props) => props.theme.textBlack};
     font-weight: 700;
     margin-bottom: 15px;
+    text-align: center;
   }
 
   .full-price {

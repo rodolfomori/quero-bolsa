@@ -16,7 +16,6 @@ export const SelectStyle = styled(Select)`
   div {
     border: none;
   }
-
   height: 45px;
   margin-top: 3px;
   font-weight: 300;
@@ -43,9 +42,11 @@ export const SelectStyle = styled(Select)`
   & .Select__single-value {
     color: ${(props) => props.theme.blackText};
     padding-left: 15px;
+    cursor: pointer;
   }
   & .Select__control {
     box-shadow: none;
+    cursor: pointer;
   }
   & .Select__indicator-separator {
     display: none;
@@ -57,9 +58,11 @@ export const SelectStyle = styled(Select)`
 
   & .Select__value-container {
     padding: 0;
+    cursor: pointer;
   }
 
   & .Select__menu {
     font-size: 16px;
+    cursor: pointer;
   }
 `

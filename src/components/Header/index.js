@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import queroBolsaLogo from '../../assets/logo-querobolsa.svg'
+import queroBolsaLogo from '../../assets/img/logo-querobolsa.svg'
 import {
   Container,
   InfoIcon,

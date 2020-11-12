@@ -3,8 +3,7 @@ import React, { useState, useEffect } from 'react'
 import { faTimes } from '@fortawesome/free-solid-svg-icons'
 import PropTypes from 'prop-types'
 
-import { ModalContent } from '../../components'
-import { Background, Icon, Container, WrapperButton, CloseButton, FitContent } from './styles'
+import { Background, Icon, Container, WrapperButton, CloseButton, FitContent, ModalItem } from './styles'
 
 export function Modal({ children, open, onClose = () => {}, data }) {
   const [openBg, setOpenBg] = useState(false)
@@ -13,7 +12,7 @@ export function Modal({ children, open, onClose = () => {}, data }) {
     if (open) return setOpenBg(open)
     setTimeout(() => {
       setOpenBg(open)
-    }, 1)
+    }, 500)
   }, [open])
 
   if (!openBg) return null
@@ -28,7 +27,7 @@ export function Modal({ children, open, onClose = () => {}, data }) {
       </FitContent>
       <Container>
         <Background open={open}></Background>
-        <ModalContent style={{ margin: '0 20px' }} data={data} open={open} />
+        <ModalItem data={data} open={open} />
       </Container>
     </>
   )
