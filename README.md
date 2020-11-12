@@ -1,6 +1,6 @@
 <h1 align="center">
     <br>
-    Quero Bolsa &nbsp; :interrobang:
+    Quero Bolsa &nbsp; :mortar_board:
 </h1>
 
   [You are ONLINE, try Now](https://quero-bolsa.netlify.app)  :tada:
