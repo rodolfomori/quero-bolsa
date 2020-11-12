@@ -16,10 +16,10 @@
   <a href="#sunny-result">Result</a>
 </p>
 
-<h1 align="center">
-    <img alt="Ask me" src="src/assets/img/front.png" />
+<div align="center" style="max-width: 300px;">
+    <img alt="quero-bolsa-logo" src="src/assets/img/logo-querobolsa.svg" />
     <br>
-</h1>
+</div>
 
 
 ## :rocket: Technologies
@@ -89,10 +89,19 @@ $ yarn or npm start
 ```
 ## :sunny: Result
 
+  <div style="display: flex;   flex-direction: column;
+  align-items: center;">
+  <h1 align="center" style="display: flex; flex-direction:row;">
+      <img   style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot.png" />
+        <img   style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-2.png" />
 
-  <h1 align="center" >
-      <img alt="quero-bolsa-app-img" src="src/assets/img/giphy.gif" />
   </h1>
+  <h1 align="center" style="display: flex; flex-direction:row;">
+      <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-3.png" />
+      <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-4.png" />
+          <img  style="margin: 0 10px;" alt="quero-bolsa-app-img" src="src/assets/img/project-screen-shot-5.png" />
+  </h1>
+  </div>
 
 
 ----
