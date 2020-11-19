@@ -59,7 +59,7 @@ $ yarn or npm start
 │   └── index.html
 │
 ├── src >> source code
-│   ├── assets.js
+│   ├── assets
 │   ├── components
 │   ├── hooks
 │   ├── services
